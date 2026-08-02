@@ -1,5 +1,10 @@
 # Writing Instructions for Claude Code: Placement and Phrasing
 
+**Canonical path:** `docs/instruction-authoring.md` in the `claude-kb` repo.
+**Raw URL:** https://raw.githubusercontent.com/LoserChallenge/claude-kb/main/docs/instruction-authoring.md
+When citing this file, copy the path from these two lines. Do not cite a path from memory — an
+earlier location of this file is still loose in old conversations and gets misreported.
+
 **Compiled:** 2026-08-02. Every substantive claim below was verified against a source fetched on that date. Re-verify before trusting this file after roughly 2026-11-01; Claude Code ships weekly and several claims here already carry version floors.
 
 **How to read the source tags.** Every claim carries a bracketed tag pointing at the source key below. Claims that could not be verified against a page fetched during compilation are marked `[UNVERIFIED]` inline. Unmarked, untagged text is the compiling session's organization of tagged facts — routing procedures, decision tables, and reconciliations — not new factual claims.

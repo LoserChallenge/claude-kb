@@ -39,6 +39,10 @@ of truth. There are no copies, and nothing here is duplicated into another surfa
 4. **If nothing in the repo covers it, say so plainly** and answer the normal way. Never guess at
    what a doc "probably" says, and never cite one you have not opened.
 
+5. **Cite the path by copying it, never by recalling it.** Each doc carries its canonical path and
+   raw URL in a header under its title. Copy from there, or from the index. Paths get confabulated
+   otherwise — a doc's old location can be reported confidently long after it moved.
+
 When a subject looks adjacent to the library but you are not certain it is covered, flag it and
 ask — "there may be a doc on this, want me to check?" — rather than skipping silently. A loose
 offer costs one line; a missed doc costs an answer given from memory.

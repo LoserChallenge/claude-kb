@@ -67,8 +67,11 @@ roughly 2026-11-01.
 ## Adding a doc
 
 1. Put the file in `docs/`.
-2. Add a section here: path, raw link, what it covers, compile date, jump table.
-3. Commit and push.
+2. Give it a self-identifying header directly under its title — canonical path, raw URL, and a line
+   telling the reader to copy the path from there rather than cite one from memory. Models
+   confabulate file paths when citing; the header is the only thing that reliably prevents it.
+3. Add a section here: path, raw link, what it covers, compile date, jump table.
+4. Commit and push.
 
 The `claude-kb` skill reads this index at run time, so a new doc is picked up without editing the
 skill — unless its subject falls outside what the skill's `description` names, in which case add
