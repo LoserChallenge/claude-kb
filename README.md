@@ -13,7 +13,12 @@ URLs resolve to single files. So the way in is to fetch this index, then fetch t
 | From Claude Code | invoke the `claude-kb` skill, or `/claude-kb` |
 | Local clone | `D:\cc-tech-support\claude-kb` |
 | Raw URL pattern | `https://raw.githubusercontent.com/LoserChallenge/claude-kb/main/<path>` |
-| If a doc is missing from this index | list the folder: `https://api.github.com/repos/LoserChallenge/claude-kb/contents/docs` — each entry carries a `download_url` |
+| If a doc is missing from this index | list the whole repo: `https://api.github.com/repos/LoserChallenge/claude-kb/git/trees/main?recursive=1` — returns every path in one call, and `truncated: false` confirms the listing is complete |
+
+**What lives here besides `docs/`:** `skills/claude-kb/SKILL.md`, the router skill that points Claude
+Code at this index. It is symlinked into `~/.claude/skills/claude-kb`, so the repo file and the
+installed skill are the same file — there is no second copy to drift. The index below covers `docs/`
+only; that skill is the one other tracked file in the repo.
 
 ---
 

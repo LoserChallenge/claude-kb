@@ -31,6 +31,11 @@ of truth. There are no copies, and nothing here is duplicated into another surfa
    Grep pattern="<term>" path="D:\cc-tech-support\claude-kb\docs" output_mode="content"
    ```
 
+   With no local clone, list every path in the repo in one call instead:
+   `https://api.github.com/repos/LoserChallenge/claude-kb/git/trees/main?recursive=1`
+   (`truncated: false` in the response means the listing is complete). Do not use the
+   `/contents/docs` endpoint for this — it lists that one folder and hides everything else.
+
 4. **If nothing in the repo covers it, say so plainly** and answer the normal way. Never guess at
    what a doc "probably" says, and never cite one you have not opened.
 
