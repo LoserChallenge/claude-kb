@@ -4,12 +4,16 @@ Shared reference library for Claude Code and Claude web. One topic per file, all
 
 **Do not answer from memory about what these docs contain — open the file.**
 
+**Start here — this file is the entry point.** There is no raw URL for a repo or a folder; raw
+URLs resolve to single files. So the way in is to fetch this index, then fetch the doc it names.
+
 | | |
 |:---|:---|
+| From Claude web | fetch `https://raw.githubusercontent.com/LoserChallenge/claude-kb/main/README.md`, then the doc's raw link |
+| From Claude Code | invoke the `claude-kb` skill, or `/claude-kb` |
 | Local clone | `D:\cc-tech-support\claude-kb` |
 | Raw URL pattern | `https://raw.githubusercontent.com/LoserChallenge/claude-kb/main/<path>` |
-| From Claude Code | invoke the `claude-kb` skill, or `/claude-kb` |
-| From Claude web | fetch the raw URL below |
+| If a doc is missing from this index | list the folder: `https://api.github.com/repos/LoserChallenge/claude-kb/contents/docs` — each entry carries a `download_url` |
 
 ---
 

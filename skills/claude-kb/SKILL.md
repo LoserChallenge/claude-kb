@@ -8,8 +8,11 @@ description: Paul's shared reference library — compiled docs on Claude and Cla
 Compiled reference docs that both Claude Code and Claude web read. The repo is the single source
 of truth. There are no copies, and nothing here is duplicated into another surface.
 
-- **Local clone:** `D:\cc-tech-support\claude-kb`
+- **Local clone:** `D:\cc-tech-support\claude-kb` — read from here in Claude Code
 - **Remote:** https://github.com/LoserChallenge/claude-kb (public)
+- **Entry point off-machine:** `https://raw.githubusercontent.com/LoserChallenge/claude-kb/main/README.md`
+  — raw URLs resolve to single files, never folders, so the index is the way in. Use this when
+  there is no local clone (a different machine, or a cloud session).
 - **Raw URL pattern:** `https://raw.githubusercontent.com/LoserChallenge/claude-kb/main/<path>`
 
 ## How to use it
