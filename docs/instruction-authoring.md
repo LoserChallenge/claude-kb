@@ -186,6 +186,8 @@ Mechanics to hold:
 
 **When it loads.** Part of the system prompt, read **once at session start**. Changes take effect only after `/clear` or a new session `[output-styles]`. Note the asymmetry with `settings.json` generally: most settings keys reload live, but `outputStyle` and `model` are read once at session start `[settings]`.
 
+**Loading and transmission are separate events — do not read "once at session start" as "sent once."** The file is opened once; the text it held is then part of the system prompt on **every** request the session sends, since the model retains nothing between messages `[prompt-caching]`. This is why an output style governs every response while a mid-session edit to its file changes nothing. The re-send is prompt-cached after the first request, so its cost is not a reason to keep a style short (see the table in §2).
+
 **Precedence and locations** `[output-styles]`:
 - User: `~/.claude/output-styles`
 - Project: `.claude/output-styles`
@@ -198,6 +200,8 @@ Mechanics to hold:
 **Scope limit:** output styles apply to the **main conversation only**. A subagent runs its own system prompt, so styles don't shape subagent responses. A conversation fork is the exception, because it inherits the parent's full system prompt `[output-styles]`.
 
 **Built-ins:** Default, Proactive, Explanatory, Learning. Proactive is stronger autonomous-execution guidance than auto mode applies, and works without changing permission mode `[output-styles]`.
+
+**Docs-vs-binary conflict: the per-turn reminder may not reach a custom style.** The docs state that "All output styles trigger reminders for Claude to adhere to the output style instructions during the conversation" `[output-styles]`. A read of the shipped Claude Code binary at v2.1.181 found that reminder gated on a lookup table containing only the three built-in style names — assigned once, indexed once, with no second code path — so a custom style name never resolves and no reminder is emitted. **Single-machine finding, not reproduced by any third party, and version-specific.** It does not affect whether the style is in the prompt: the full text is in the system prompt every turn either way. It matters only if you were counting on the reminder to hold a custom style's behaviour steady over a long conversation. Re-check before relying on it.
 
 ## 6. Skills — and note that custom slash commands are now skills
 
