@@ -36,8 +36,9 @@ Two separate questions; diagnose which one before reading. **Placement** — Cla
 the rule, or it disappears after compaction. **Phrasing** — Claude sees the rule and follows it
 inconsistently.
 
-Compiled 2026-08-02 against Anthropic sources only. Re-verify version-sensitive claims after
-roughly 2026-11-01.
+Compiled 2026-08-02 against Anthropic sources only. Amended 2026-08-05 with section 12a, on what
+happens when an output style and CLAUDE.md give conflicting instructions. Re-verify
+version-sensitive claims after roughly 2026-11-01.
 
 **Jump table** — open the section, not the whole file:
 
@@ -53,6 +54,7 @@ roughly 2026-11-01.
 | Permission evaluation order and settings precedence | 9 |
 | What survives `/compact` | 11 |
 | Precedence for every construct, side by side | 12 |
+| Output style vs CLAUDE.md when they conflict, and how to test it | 12a |
 | Before/after pairs for vague instructions | 13 |
 | Positive vs. negative framing | 14 |
 | Whether to add "IMPORTANT" or "YOU MUST" — **Anthropic's sources conflict** | 15 |

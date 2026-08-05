@@ -426,6 +426,23 @@ Plan mode delegates research to the **Plan subagent**, which skips CLAUDE.md —
 
 **Note the split:** four constructs override, two merge, and CLAUDE.md does neither — it concatenates and leaves conflicts to judgment. Do not carry an intuition from one row to another.
 
+### 12a. Across constructs — output style vs CLAUDE.md
+
+*Added 2026-08-05. The table above resolves conflicts **within** a construct. It says nothing about what happens when two different constructs disagree. That question comes up most often as an output style against CLAUDE.md.*
+
+**Placement is documented; a precedence rule is not.** An output style modifies the system prompt and is appended to the end of it. CLAUDE.md arrives as a user message after the system prompt `[output-styles]` `[memory]`. Anthropic's own layer-ordering table puts them in different layers — output style under *System prompt*, CLAUDE.md under *Project context* alongside auto memory and unscoped rules `[prompt-caching]`.
+
+**One official source states the weighting outright:** output styles "carry the highest instruction-following weight of any method that we've covered so far" — where "so far" includes rules, skills, subagents, and hooks `[steering-blog]`. **This is blog-grade and single-source.** No reference page states it, so cite it as an Anthropic claim, not as documented behaviour.
+
+**Practical reading:** expect the output style to win most conflicts. Treat it as a weighting, not an override. Neither surface is enforced configuration — the memory docs call CLAUDE.md "context, not enforced configuration" and note that contradicting rules may be resolved arbitrarily `[memory]`. Anything that must never vary belongs in a hook or a permission rule, where the harness enforces it rather than the model choosing.
+
+**No published reproducible test of this specific pair exists** as of 2026-08-05. Three GitHub issues report instructions being ignored — #6450, #31776, #39210 — all closed as not planned with no maintainer statement on precedence, and none tests this pair. One issue, #54955, is cited in search results as establishing "files read last take precedence"; it does not — that was the reporter's proposed wording and the issue closed without adoption `[UNVERIFIED]`.
+
+**To settle it on your own machine:** put one line in a test directory's CLAUDE.md and a contradicting line in an output style set for that directory — two distinct tokens, each file forbidding the other's. Run `/context` to confirm both loaded, ask ten trivial questions, record which token appears per turn. Then swap the tokens between the files and repeat, which rules out any bias toward the literal strings. Set `keep-coding-instructions: true` so the only variable is the conflicting line. One turn proves nothing; this is a weighting, so it needs a count.
+
+`[steering-blog]` = claude.com/blog/steering-claude-code-skills-hooks-rules-subagents-and-more, official Anthropic, 2026-06-18
+`[prompt-caching]` = code.claude.com/docs/en/prompt-caching
+
 ---
 
 # PART TWO — PHRASING
